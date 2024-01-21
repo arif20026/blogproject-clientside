@@ -1,4 +1,4 @@
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 const AddBlog = () => {
     const handleAddBlog = e => {
@@ -28,7 +28,7 @@ const AddBlog = () => {
                 Swal.fire({
                     position: "top",
                     icon: "success",
-                    title: "Product Added",
+                    title: "Blog Added",
                     showConfirmButton: false,
                     timer: 1000
                   });
