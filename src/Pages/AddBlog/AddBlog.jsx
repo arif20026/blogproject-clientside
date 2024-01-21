@@ -10,8 +10,10 @@ const AddBlog = () => {
         const category = form.category.value
         const shortDescription = form.shortDescription.value
         const longDescription = form.longDescription.value
+        const currentDate = new Date();
+        const createdAt = currentDate.toISOString();
 
-        const newBlog = {image,title,email,category,shortDescription,longDescription}
+        const newBlog = {image,title,email,category,shortDescription,longDescription,createdAt}
 
         console.log(newBlog)
 

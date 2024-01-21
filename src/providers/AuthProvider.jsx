@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 // import axios from "axios";
 
@@ -22,9 +22,18 @@ const AuthProvider = ({ children }) => {
         }
     }
 
-    const createUser = (email, password) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+    const createUser = async (email,password,displayName,photoURL) => {
+        setLoading(true)
+        try{
+            const result = await createUserWithEmailAndPassword(auth,email,password)
+            await updateProfile (result.user,{displayName,photoURL})
+            return result
+        }
+        catch(error){
+            console.error(error)
+            throw(error)
+
+        }
     }
 
     const signIn = (email, password) => {
@@ -39,8 +48,8 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            const userEmail = currentUser?.email || user?.email;
-            const loggedUser = { email: userEmail };
+            // const userEmail = currentUser?.email || user?.email;
+            // const loggedUser = { email: userEmail };
             setUser(currentUser);
             console.log('current user', currentUser);
             setLoading(false);

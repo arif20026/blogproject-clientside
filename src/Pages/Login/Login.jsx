@@ -1,7 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import useAuth from '../../hooks/useAuth';
-import { useState } from 'react';
+// import { useState } from 'react';
+import Swal from 'sweetalert2';
 // import { useContext } from 'react';
 // import { AuthContext } from '../../providers/AuthProvider';
 
@@ -10,7 +11,7 @@ const Login = () => {
     // const { signIn } = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
-    const [loginError, setLoginError] = useState('')
+    // const [loginError, setLoginError] = useState('')
 
     const handleLogin = event => {
         event.preventDefault();
@@ -20,7 +21,7 @@ const Login = () => {
         console.log(email, password)
 
 
-        setLoginError('')
+        // setLoginError('')
 
         signIn(email, password)
             .then(result => {
@@ -30,7 +31,14 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error)
-                setLoginError('password is not correct')
+                // setLoginError('password is not correct')
+                Swal.fire({
+                    position: "top",
+                    icon: "error",
+                    title: "Password is not correct",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             });
     }
 
@@ -74,9 +82,9 @@ const Login = () => {
                         </form>
                         <p className='my-4 text-center'>No Account? Please <Link className='text-blue-600 font-bold' to="/register">Register</Link> </p>
 
-                        {
+                        {/* {
                             loginError && <p className="text-red-700 font-bold text-3xl"> {loginError}</p>
-                        }
+                        } */}
                     </div>
                 </div>
             </div>
