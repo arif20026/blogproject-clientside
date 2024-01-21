@@ -6,11 +6,12 @@ const AddBlog = () => {
         const form = e.target
         const image = form.image.value
         const title = form.title.value
+        const email = form.email.value
         const category = form.category.value
         const shortDescription = form.shortDescription.value
         const longDescription = form.longDescription.value
 
-        const newBlog = {image,title,category,shortDescription,longDescription}
+        const newBlog = {image,title,email,category,shortDescription,longDescription}
 
         console.log(newBlog)
 
@@ -56,6 +57,12 @@ const AddBlog = () => {
                 </div>
               <div className="form-control">
                     <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
+                    <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                </div>
+              <div className="form-control">
+                    <label className="label">
                         <span className="label-text">Category</span>
                     </label>
                     <input type="text" placeholder="category" name="category" className="input input-bordered" required />
@@ -77,7 +84,7 @@ const AddBlog = () => {
                 
               </div>
                 <div className="form-control mt-6">
-                    <input type="submit" value="Add Product" className="btn btn-primary" />
+                    <input type="submit" value="Add Blog" className="btn btn-primary" />
                 </div>
             </form>
 

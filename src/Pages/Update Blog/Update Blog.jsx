@@ -4,9 +4,11 @@ import Swal from 'sweetalert2'
 const UpdateBlog = () => {
 
 
-    const blogs = useLoaderData
+    const blog = useLoaderData()
 
-    const {image, title, category, shortDescription, longDescription } =blogs
+    const {_id,image, title, category, shortDescription , longDescription } =blog
+
+    console.log(blog)
 
     const handleUpdateBlog = e => {
         e.preventDefault()
@@ -21,27 +23,31 @@ const UpdateBlog = () => {
 
         console.log(updatedBlog)
 
-        // sending newProduct to server
+        // sending Updated Blog to server
 
-        fetch('http://localhost:5000/blogs', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
+        fetch(`http://localhost:5000/blogs/${_id}`,{
+            method:'PUT',
+            headers: {'content-type': 'application/json'},
             body: JSON.stringify(updatedBlog)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.insertedId) {
-                    Swal.fire({
-                        position: "top",
-                        icon: "success",
-                        title: "Blog Updated",
-                        showConfirmButton: false,
-                        timer: 1000
-                    });
-                }
 
-            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount>0){
+
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Blog Updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+
+            }
+        })
+        
+    
 
     }
     return (

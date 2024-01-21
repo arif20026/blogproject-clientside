@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const BlogCard = ({ blog }) => {
-    const {_id, title,image,category,shortDescription,longDescription } = blog
+    const {email,_id, title,image,category,shortDescription,longDescription } = blog
     const {user} =useContext(AuthContext)
 
     // console.log(user?.email)
@@ -44,6 +44,9 @@ const BlogCard = ({ blog }) => {
                 <div className="card-actions justify-start">
                     <Link to={`/blogs/${_id}`}><button className="btn btn-primary">Details</button></Link>
                     <button className="btn btn-secondary" onClick={() => handleAddToWishList(_id)}>Wishlist</button>
+                   {
+                    user?.email===email &&  <Link to={`/updateBlog/${_id}`} ><button className="btn btn-primary">Update</button></Link>
+                   }
                 </div>
             </div>
         </div>
