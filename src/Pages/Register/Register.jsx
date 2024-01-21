@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const SignUp = () => {
 
     const { createUser } = useContext(AuthContext);
+
+    const [registerError,setRegisterError] = useState('')
+    const[success,setSuccess] =useState(false)
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -15,12 +18,28 @@ const SignUp = () => {
         console.log(name, email, password)
 
 
+        setRegisterError('')
+        setSuccess('')
+
+
+
+        if (!/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])(.{6,})$/.test(password)) {
+            setRegisterError('Password should be at least 6 characters and contain an uppercase letter, a numeric character, and a special character!');
+            return;
+        }
+        
+
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log('created user', user)
+                setSuccess(true)
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error)
+                setRegisterError(error.message)
+            })
 
     }
 
@@ -49,15 +68,21 @@ const SignUp = () => {
                                     <span className="label-text"> Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Register" />
                             </div>
                         </form>
                         <p className='my-4 text-center'>Already Have an Account? <Link className='text-blue-600 font-bold' to="/login">Login</Link> </p>
+
+                        {
+                            registerError && <p className="text-red-500  font-bold text-3xl">{registerError}</p>
+                        }
+
+                        {
+                            success && <p className="text-green-800 font-bold text-3xl">Congratulation! User Created</p>
+                        }
                     </div>
                 </div>
             </div>

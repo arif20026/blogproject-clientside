@@ -8,11 +8,14 @@ import Blogs from "../Pages/Blogs/Blogs";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import WishList from "../Pages/WishList/WishList";
 import UpdateBlog from "../Pages/Update Blog/Update Blog";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/addBlog',
-          element:<AddBlog></AddBlog>
+          element:<PrivateRoute><AddBlog></AddBlog></PrivateRoute>
         },
         {
           path:'/updateBlog/:id',
@@ -37,7 +40,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/wishList',
-          element:<WishList></WishList>,
+          element:<PrivateRoute><WishList></WishList></PrivateRoute>,
           
         },
         // {

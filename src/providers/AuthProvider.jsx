@@ -1,14 +1,26 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../firebase/firebase.config";
-import axios from "axios";
+// import axios from "axios";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const googleProvider = new GoogleAuthProvider()
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const signInWithGoogle = async () => {
+        try{
+            const result = await signInWithPopup(auth,googleProvider)
+            setUser(result.user)
+        }
+        catch(error){
+            console.error(error.message)
+
+        }
+    }
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -32,6 +44,8 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             console.log('current user', currentUser);
             setLoading(false);
+
+            
             // if user exists then issue a token
 
 
@@ -59,6 +73,7 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         createUser,
+        signInWithGoogle,
         signIn,
         logOut
     }
