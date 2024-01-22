@@ -15,7 +15,9 @@ const NewsLetter = () => {
 
     }
     return (
-        <div>
+        <div  className="flex flex-col justify-center items-center">
+
+            <h3>Subscribe To Our NewsLetter</h3>
 
             <form onSubmit={handleSubmit} className="my-4 mx-4">
             <div className="join">

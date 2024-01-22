@@ -4,7 +4,7 @@ import BlogCard from "../Blogs/BlogCard";
 
 const Blogs = () => {
     const allBlogs = useLoaderData();
-    const [selectedCategory, setSelectedCategory] = useState("all"); // Default to "all"
+    const [selectedCategory, setSelectedCategory] = useState("all");
     const [searchedTitle, setSearchedTitle] = useState("");
 
     // Filter blogs based on the selected category and searched title
@@ -15,6 +15,7 @@ const Blogs = () => {
         return categoryMatch && titleMatch;
     });
 
+  
     const uniqueCategories = [...new Set(allBlogs.map((blog) => blog.category))];
 
     const handleSearchByTitle = (e) => {
@@ -22,7 +23,7 @@ const Blogs = () => {
         const form = e.target;
         const title = form.searchedTitle.value;
         setSearchedTitle(title);
-        setSelectedCategory("all"); // Reset category filter when searching by title
+        setSelectedCategory("all");
     };
 
     return (
@@ -58,6 +59,9 @@ const Blogs = () => {
                     </button>
                 </form>
             </div>
+
+
+            {/* Display filtered blogs */}
             {filteredBlogs.map((blog) => (
                 <BlogCard key={blog._id} blog={blog}></BlogCard>
             ))}
