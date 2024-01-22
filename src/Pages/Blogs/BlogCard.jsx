@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const BlogCard = ({ blog }) => {
-    const {email,_id, title,image,category,shortDescription,longDescription } = blog
+    const {email,_id, title,image,category,shortDescription} = blog
     const {user} =useContext(AuthContext)
 
     // console.log(user?.email)

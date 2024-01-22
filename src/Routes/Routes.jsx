@@ -10,6 +10,7 @@ import WishList from "../Pages/WishList/WishList";
 import UpdateBlog from "../Pages/Update Blog/Update Blog";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import FeaturedBlog from "../Pages/FeaturedBlog/FeaturedBlog";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,13 @@ const router = createBrowserRouter([
           path:'/blogs/:id',
           element:<BlogDetails></BlogDetails>,
           loader:({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        },
+
+        {
+          path:'/featuredBlog',
+          element:<FeaturedBlog></FeaturedBlog>,
+          loader:() => fetch('http://localhost:5000/blogs')
+          
         },
        
       ]
