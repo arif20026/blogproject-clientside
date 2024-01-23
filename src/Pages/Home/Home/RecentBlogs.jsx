@@ -3,6 +3,8 @@ import RecentBlog from './RecentBlog'
 
 const RecentBlogs = () => {
 
+    
+
     const [blogs, setBlogs] = useState([])
 
     useEffect(() => {
@@ -21,8 +23,9 @@ const RecentBlogs = () => {
             <h3>Blogs :{blogs.length}</h3>
          <div className=" space-y-4 my-4 ">
          {recentBlogs.map((blog) => (
-                <RecentBlog key={blog._id} blog={blog}></RecentBlog>
-                
+           
+           <RecentBlog blog={blog} key={blog._id}/>
+        
             ))}
          </div>
 
