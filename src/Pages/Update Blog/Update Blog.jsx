@@ -5,7 +5,6 @@ const UpdateBlog = () => {
 
 
     const blog = useLoaderData()
-
     const {_id,image, title, category, shortDescription , longDescription } =blog
 
     console.log(blog)
@@ -46,10 +45,9 @@ const UpdateBlog = () => {
 
             }
         })
-        
-    
-
     }
+
+
     return (
         <div>
 

@@ -1,14 +1,26 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import BlogCard from "../Blogs/BlogCard";
+import { useQuery } from "@tanstack/react-query";
 
 const Blogs = () => {
-    const allBlogs = useLoaderData();
+    // const allBlogs = useLoaderData();
+
+    
+    const {isPending,isError,error,data:allBlogs} =useQuery({
+        queryKey:['allBlogs'],
+        queryFn: async () =>{
+            const res = await fetch('http://localhost:5000/blogs')
+            return res.json()
+        }
+
+    })
+
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [searchedTitle, setSearchedTitle] = useState("");
 
     // Filter blogs based on the selected category and searched title
-    const filteredBlogs = allBlogs.filter((blog) => {
+    const filteredBlogs = allBlogs?.filter((blog) => {
         const categoryMatch =
             selectedCategory === "all" || blog.category === selectedCategory;
         const titleMatch = blog.title.toLowerCase().includes(searchedTitle.toLowerCase());
@@ -16,7 +28,7 @@ const Blogs = () => {
     });
 
   
-    const uniqueCategories = [...new Set(allBlogs.map((blog) => blog.category))];
+    const uniqueCategories = [...new Set(allBlogs?.map((blog) => blog.category))];
 
     const handleSearchByTitle = (e) => {
         e.preventDefault();
@@ -25,6 +37,13 @@ const Blogs = () => {
         setSearchedTitle(title);
         setSelectedCategory("all");
     };
+
+    if(isPending){
+        return <span className="loading loading-spinner loading-lg"></span>
+    }
+    if(isError){
+        return <p>Error: {error.message}</p>
+    }
 
     return (
         <div className="grid grid-cols-1 space-y-8">
@@ -40,7 +59,7 @@ const Blogs = () => {
                         onChange={(e) => setSelectedCategory(e.target.value)}
                     >
                         <option value="all">All Categories</option>
-                        {uniqueCategories.map((category) => (
+                        {uniqueCategories?.map((category) => (
                             <option key={category} value={category}>
                                 {category}
                             </option>

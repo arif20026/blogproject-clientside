@@ -15,9 +15,9 @@ const NewsLetter = () => {
 
     }
     return (
-        <div  className="flex flex-col justify-center items-center">
+        <div  className="flex flex-col justify-center items-center card bg-base-100 shadow-xl border border-blue-500 my-10 mx-10">
 
-            <h3>Subscribe To Our NewsLetter</h3>
+            <h3 className="text-4xl font-bold ">Subscribe To Our NewsLetter</h3>
 
             <form onSubmit={handleSubmit} className="my-4 mx-4">
             <div className="join">
