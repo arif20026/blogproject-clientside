@@ -15,12 +15,9 @@ const WishList = () => {
     console.log(url)
 
     useEffect(() => {
-        fetch(url)
+        fetch(url,{ credentials: 'include' })
         .then(res => res.json())
         .then(data => setWishList(data))
-
-        //     setWishList([])
-        // }
 
 
     }, []);
@@ -43,17 +40,12 @@ const WishList = () => {
     }
 
 
-    // const {_id,title,image,category} =wishListedBlog
-    // console.log(wishListedBlogs)
-    // console.log(_id)
-
-
 
     return (
         <div>
 
             {
-                wishList.map(item => <WishListCard key={item._id} item={item} handleRemove={handleRemove} >
+                wishList?.map(item => <WishListCard key={item._id} item={item} handleRemove={handleRemove} >
 
                 </WishListCard>
                 )
