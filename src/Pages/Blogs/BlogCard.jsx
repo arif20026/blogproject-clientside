@@ -36,7 +36,7 @@ const BlogCard = ({ blog }) => {
     } 
     return (
         <div className="card bg-base-100 shadow-xl border border-blue-500 ">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <figure><img src={image} alt="Blogs" /></figure>
             <div className="card-body">
                 <h2 className="card-title">title : {title}</h2>
                 <p>category: {category}</p>
