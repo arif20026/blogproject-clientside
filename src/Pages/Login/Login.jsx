@@ -75,7 +75,7 @@ const Login = () => {
                             <div className="form-control mt-6  gap-4 w-full">
                                 <input className="btn btn-primary" type="submit" value="Login" />
                                 <div >
-                                    <button className='btn btn-secondary w-56' onClick={handleSignInWithGoogle}><span className='flex gap-2'>Sign in With Google<FaGoogle /></span></button>
+                                    <button className='btn btn-primary w-56' onClick={handleSignInWithGoogle}><span className='flex gap-2'>Sign in With Google<FaGoogle /></span></button>
 
                                 </div>
                             </div>

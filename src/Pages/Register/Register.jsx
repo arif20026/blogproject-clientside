@@ -12,11 +12,11 @@ const SignUp = () => {
 
     const handleSignUp = event => {
         event.preventDefault();
-        const form = event.target;
-        const displayName = form.name.value;
-        const photoURL = form.photoURL.value
-        const email = form.email.value;
-        const password = form.password.value;
+        const form = new FormData(event.currentTarget)
+        const displayName = form.get('name')
+        const photoURL = form.get('photoURL')
+        const email =  form.get('email')
+        const password = form.get('password')
         console.log( email, password,displayName,photoURL)
 
 

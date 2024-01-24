@@ -42,10 +42,10 @@ const Navbar = () => {
                 {
                     user? 
                     <div className="flex flex-row gap-4 items-center">
-                        <img src={user.photoURL} alt=""  className="rounded-full w-12"/>
-                        <button className="btn btn-secondary" onClick={() => handleLogOut()}>LogOut</button></div>
+                        <img src={user.photoURL} alt=""  className="rounded-full w-10 h-10"/>
+                        <button className="btn btn-primary" onClick={() => handleLogOut()}>LogOut</button></div>
                      : <div className="flex gap-2">
-                        <Link to="/register"><button className="btn btn-secondary" >Register</button></Link>
+                        <Link to="/register"><button className="btn btn-primary" >Register</button></Link>
                         <Link to="/login"><button className="btn btn-primary" >Login</button></Link>
                      </div>
                 }

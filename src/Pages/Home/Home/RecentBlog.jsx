@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const RecentBlog = ({ blog }) => {
   const { _id, title, image, shortDescription, category } = blog;
@@ -30,7 +31,13 @@ const RecentBlog = ({ blog }) => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("Blog WishListed successfully");
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Blog  WishListed ",
+            showConfirmButton: false,
+            timer: 1000
+        });
         }
       });
   };

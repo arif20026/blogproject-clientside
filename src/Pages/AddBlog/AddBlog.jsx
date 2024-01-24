@@ -81,8 +81,13 @@ const AddBlog = () => {
                             <option value="" disabled selected>
                                 Select a category
                             </option>
-                            <option value="category1">Category 1</option>
-                            <option value="category2">Category 2</option>
+                            <option value="Technology"> Technology</option>
+                            <option value="Travel"> Travel</option>
+                            <option value="Nature"> Nature</option>
+                            <option value="Food"> Food</option>
+                            <option value="Hobbies"> Hobbies</option>
+                            <option value="Fitness"> Fitness</option>
+                            <option value="Art"> Art</option>
                             {/* Add more options as needed */}
                         </select>
                     </div>

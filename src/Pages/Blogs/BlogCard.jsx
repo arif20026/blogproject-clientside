@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const BlogCard = ({ blog }) => {
-    const {email,_id, title,image,category,shortDescription} = blog
+    const {email,_id, title,image,category,shortDescription,longDescription} = blog
     const {user} =useContext(AuthContext)
 
     // console.log(user?.email)
@@ -15,7 +16,7 @@ const BlogCard = ({ blog }) => {
 
         const wishListedBlog = {
             email: user?.email,
-           title, image, shortDescription, category
+           title, image, shortDescription, longDescription, category
         }
         console.log(wishListedBlog)
 
@@ -30,7 +31,13 @@ const BlogCard = ({ blog }) => {
         .then(data => {
             console.log(data);
             if(data.insertedId){
-                alert('Blog WishListed successfully')
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Blog WishListed Successfully",
+                    showConfirmButton: false,
+                    timer: 1000
+                });
             }
         })
     } 

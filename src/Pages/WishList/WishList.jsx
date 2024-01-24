@@ -1,6 +1,7 @@
 import WishListCard from "./WishListCard";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const WishList = () => {
 
@@ -32,7 +33,13 @@ const WishList = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('deleted successful');
+                        Swal.fire({
+                            position: "top",
+                            icon: "success",
+                            title: "Blog removed from Wishlist",
+                            showConfirmButton: false,
+                            timer: 1000
+                        });
                         const remaining = wishList.filter(RemainingWishList => RemainingWishList._id !== _id);
                         setWishList(remaining);
                     }

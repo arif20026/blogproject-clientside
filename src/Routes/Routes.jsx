@@ -45,12 +45,12 @@ const router = createBrowserRouter([
           element:<PrivateRoute><WishList></WishList></PrivateRoute>,
           
         },
-        // {
-        //   path:'/wishList/:id',
-        //   element:<WishList></WishList>,
-        //   loader: ({params}) => fetch(`http://localhost:5000/wishList/${params.id}`)
+        {
+          path:'/wishList/:id',
+          element:<WishList></WishList>,
+          loader: ({params}) => fetch(`http://localhost:5000/wishList/${params.id}`)
          
-        // },
+        },
         {
           path:'/blogs',
           element:<Blogs></Blogs>,
