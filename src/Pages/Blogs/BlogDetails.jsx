@@ -10,56 +10,56 @@ const BlogDetails = () => {
 
     const { user } = useContext(AuthContext)
 
-    // const [comments, setComments] = useState([])
-    // const url = `https://assignment-11-blog-server.vercel.app/comments?blogId=${_id}`
-    // console.log(url)
+    const [comments, setComments] = useState([])
+    const url = `https://assignment-11-blog-server.vercel.app/comments?blogId=${_id}`
+    console.log(url)
 
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setComments(data))
-    // }
-    //     , [])
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setComments(data))
+    }
+        , [])
 
    
-    // const handleAddComment = e => {
-    //     e.preventDefault()
-    //     const form = e.target
-    //     const comment = form.comment.value
-    //     const currentDate = new Date();
-    //     const createdAt = currentDate.toISOString();
-    //     const email = user.email
-    //     const blogOwner = user.displayName
-    //     const profilePicture = user.photoURL
-    //     const blogId = _id
+    const handleAddComment = e => {
+        e.preventDefault()
+        const form = e.target
+        const comment = form.comment.value
+        const currentDate = new Date();
+        const createdAt = currentDate.toISOString();
+        const email = user.email
+        const blogOwner = user.displayName
+        const profilePicture = user.photoURL
+        const blogId = _id
 
-    //     console.log(email, blogOwner, profilePicture)
+        console.log(email, blogOwner, profilePicture)
 
-    //     const newComment = { comment, blogOwner, profilePicture, blogId }
+        const newComment = { comment, blogOwner, profilePicture, blogId }
 
-    //     console.log(newComment)
+        console.log(newComment)
 
-    //     // sending newProduct to server
+        // sending newComment to server
 
-    //     setComments((prevComments) => [...prevComments, newComment]);
+        setComments((prevComments) => [...prevComments, newComment]);
 
         
 
 
-    //     fetch('https://assignment-11-blog-server.vercel.app/comments', {
-    //         method: 'POST',
-    //         headers: { 'content-type': 'application/json' },
-    //         body: JSON.stringify(newComment)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
+        fetch('https://assignment-11-blog-server.vercel.app/comments', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newComment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
 
-    //         })
+            })
 
            
 
-    // }
+    }
     return (
         
 
@@ -72,6 +72,20 @@ const BlogDetails = () => {
                 <h3><span className="font-bold">Long Description: </span>{longDescription}</h3>
 
                 <h3 className="text-3xl font-bold">Comments</h3>
+
+                {
+                        comments.map(comment => <div key={comment._id} className="border border-red-400 rounded-xl">
+                            <div className="flex gap-2" >
+                                <img src={comment.profilePicture} alt="" className="w-10 rounded-full" />
+                                <h3 className="text-xl font-bold">{comment.blogOwner}</h3>
+
+                            </div>
+                            <p className="ml-16 mb-4"> {comment.comment}</p>
+
+
+
+                        </div>)
+                    }
 
                 {
                     user.email === email ?
@@ -88,19 +102,7 @@ const BlogDetails = () => {
 
                         </form>
                 }
-                    {/* {
-                        comments.map(comment => <div key={comment._id} className="border border-red-400 rounded-xl">
-                            <div className="flex gap-2" >
-                                <img src={comment.profilePicture} alt="" className="w-10 rounded-full" />
-                                <h3 className="text-xl font-bold">{comment.blogOwner}</h3>
-
-                            </div>
-                            <p className="ml-16 mb-4"> {comment.comment}</p>
-
-
-
-                        </div>)
-                    } */}
+                   
 
                     
 

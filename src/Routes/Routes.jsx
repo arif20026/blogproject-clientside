@@ -45,12 +45,12 @@ const router = createBrowserRouter([
           element:<PrivateRoute><WishList></WishList></PrivateRoute>,
           
         },
-        {
-          path:'/wishList/:id',
-          element:<WishList></WishList>,
-          loader: ({params}) => fetch(`https://assignment-11-blog-server.vercel.app/wishList/${params.id}`)
+        // {
+        //   path:'/wishList/:id',
+        //   element:<WishList></WishList>,
+        //   loader: ({params}) => fetch(`https://assignment-11-blog-server.vercel.app/wishList/${params.id}`)
          
-        },
+        // },
         {
           path:'/blogs',
           element:<Blogs></Blogs>,

@@ -16,7 +16,7 @@ const WishList = () => {
     console.log(url)
 
     useEffect(() => {
-        fetch(url,{ credentials: 'include' })
+        fetch(url)
         .then(res => res.json())
         .then(data => setWishList(data))
 

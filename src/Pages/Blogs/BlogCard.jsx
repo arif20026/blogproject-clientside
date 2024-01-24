@@ -16,7 +16,7 @@ const BlogCard = ({ blog }) => {
 
         const wishListedBlog = {
             email: user?.email,
-           title, image, shortDescription, longDescription, category
+           title, image, shortDescription, longDescription, category,
         }
         console.log(wishListedBlog)
 

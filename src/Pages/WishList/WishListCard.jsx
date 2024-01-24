@@ -13,7 +13,7 @@ const WishListCard = ({ item ,handleRemove}) => {
             <h3 > <span className="font-bold">Title:</span>  {title}</h3>
             <h3 > <span className="font-bold">Category:</span>  {category}</h3>
             <h3 > <span className="font-bold">Short Description:</span> {shortDescription}</h3>
-            <Link to={`/wishList/${_id}`}><button className="btn btn-primary mr-2 my-2">Details</button></Link>
+            <Link to={`/blogs/${_id}`}><button className="btn btn-primary mr-2 my-2">Details</button></Link>
             <button className="btn btn-primary" onClick={() =>handleRemove(_id)} >Remove</button>
 
         </div>
