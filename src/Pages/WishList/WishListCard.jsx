@@ -8,14 +8,13 @@ const WishListCard = ({ item ,handleRemove}) => {
 
 
     return (
-        <div>
+        <div className="mx-10 border border-blue-500 my-4 rounded-md px-2">
 
-            <h3 > Id: {_id}</h3>
-            <h3 > Title: {title}</h3>
-            <h3 > Category: {category}</h3>
-            <h3 > Short Description: {shortDescription}</h3>
-            <Link to={`/wishList/${_id}`}><button className="btn btn-primary">Details</button></Link>
-            <button className="btn btn-secondary" onClick={() =>handleRemove(_id)} >Remove</button>
+            <h3 > <span className="font-bold">Title:</span>  {title}</h3>
+            <h3 > <span className="font-bold">Category:</span>  {category}</h3>
+            <h3 > <span className="font-bold">Short Description:</span> {shortDescription}</h3>
+            <Link to={`/wishList/${_id}`}><button className="btn btn-primary mr-2 my-2">Details</button></Link>
+            <button className="btn btn-primary" onClick={() =>handleRemove(_id)} >Remove</button>
 
         </div>
     );

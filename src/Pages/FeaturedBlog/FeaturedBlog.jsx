@@ -45,7 +45,7 @@ const FeaturedBlog = () => {
     }));
 
     return (
-        <div>
+        <div >
             <DataTable columns={columns} data={data} />
         </div>
     );

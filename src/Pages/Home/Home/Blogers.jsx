@@ -31,10 +31,10 @@ const Blogers = () => {
              {/* Display top three bloggers */}
              <div className="text-center m-10 p-10 space-y-8 card bg-base-100 shadow-xl border border-blue-500 ">
                 <h3 className="text-4xl font-bold">Top Three Bloggers:</h3>
-                <ul className="grid grid-cols-3">
+                <ul className="grid grid-cols-3 gap-8 ">
                     {topThreeBloggers.map((blogger) => (
-                        <li key={blogger}>
-                            <span className="text-xl font-bold"> {blogger}</span> - {bloggerCounts[blogger]} blogs
+                        <li key={blogger} >
+                            <span className="text-xl font-bold "> {blogger}</span> - {bloggerCounts[blogger]} blogs
                         </li>
                     ))}
                 </ul>

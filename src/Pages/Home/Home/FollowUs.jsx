@@ -17,7 +17,7 @@ const FollowUs = () => {
     >
       <h3 className="text-4xl font-bold">Find us on</h3>
 
-      <motion.div className="flex justify-around mx-28 my-4">
+      <motion.div className="flex justify-around mx-28 my-4 gap-2">
         <motion.div whileHover={{ scale: 1.1 }}>
           <FaFacebook />
         </motion.div>

@@ -15,15 +15,15 @@ const NewsLetter = () => {
 
     }
     return (
-        <div  className="flex flex-col justify-center items-center card bg-base-100 shadow-xl border border-blue-500 my-10 mx-10">
+        <div  className="flex flex-col justify-center items-center card bg-base-100 shadow-xl border border-blue-500 my-10 mx-10 px-2">
 
             <h3 className="text-4xl font-bold ">Subscribe To Our NewsLetter</h3>
 
-            <form onSubmit={handleSubmit} className="my-4 mx-4">
+            <form onSubmit={handleSubmit} className="my-4 mx-10  ">
             <div className="join">
-                <input className="input input-bordered join-item" placeholder="Email" type="email" required  />
+                <input className="input input-bordered join-item w-28" placeholder="Email" type="email" required  />
                 {/* <input  type="submit"></input> */}
-                <input className="btn btn-primary join-item rounded-r-full" type="submit" value="Subscribe" />
+                <input className="btn btn-primary join-item rounded-r-full w-20" type="submit" value="Subscribe" />
             </div>
 
             </form>

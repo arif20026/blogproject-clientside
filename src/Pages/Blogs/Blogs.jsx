@@ -46,11 +46,10 @@ const Blogs = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 space-y-8">
-            <h3>Blogs: {filteredBlogs.length}</h3>
+        <div >
 
             {/* Category filter dropdown */}
-            <div className=" space-x-24">
+            <div className=" flex flex-col lg:flex-row space-y-4 my-4 justify-around items-center">
                 <label>
                     <span className="font-bold mr-2">Filter by Category:</span>
                     <select
@@ -80,10 +79,12 @@ const Blogs = () => {
             </div>
 
 
-            {/* Display filtered blogs */}
-            {filteredBlogs.map((blog) => (
+         <div className="grid grid-cols-1 space-y-8 mx-10 my-6">
+               {/* Display filtered blogs */}
+               {filteredBlogs.map((blog) => (
                 <BlogCard key={blog._id} blog={blog}></BlogCard>
             ))}
+         </div>
         </div>
     );
 };
