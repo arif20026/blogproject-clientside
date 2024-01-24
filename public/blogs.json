@@ -1,0 +1,29 @@
+[
+
+ 
+    {
+      "_id": "65ae22e7291adc5505da5f74",
+      "blogOwner": "Bob Miller",
+      "profilePicture": "https://i.ibb.co/PtbBbbM/download-16.jpg",
+      "image": "https://i.ibb.co/QngmChB/download-8.jpg",
+      "title": "Fitness Journey",
+      "email": "bob.miller@example.com",
+      "category": "Fitness",
+      "shortDescription": "Integer eu dolor a elit iaculis fringilla.",
+      "longDescription": "Integer eu dolor a elit iaculis fringilla. Praesent tincidunt, nisl et tincidunt fermentum, ipsum odio gravida dolor, nec tempus odio purus non nibh. In hac habitasse platea dictumst.",
+      "createdAt": "2024-01-22T16:55:59.234Z"
+    },
+    {
+      "_id": "65ae22e7291adc5505da5f75",
+      "blogOwner": "John Doe",
+      "profilePicture": "https://i.ibb.co/7CJQY0R/download-13.jpg",
+      "image": "https://i.ibb.co/yY1VkjY/download.png",
+      "title": "Artistic Expressions",
+      "email": "john.doe@example.com",
+      "category": "Art",
+      "shortDescription": "Duis auctor augue id ligula mattis, eu congue elit elementum.",
+      "longDescription": "Duis auctor augue id ligula mattis, eu congue elit elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam vel sollicitudin lacus. Fusce sit amet metus at odio tristique cursus.",
+      "createdAt": "2024-01-22T18:10:10.456Z"
+    }
+  ]
+  

@@ -40,7 +40,7 @@ const FeaturedBlog = () => {
         serial: (index + 1).toString(),
         title: blog.title,
         blogOwner: blog.blogOwner,
-        profilePic: <img src={blog.profilePicture} alt=""  className='w-10 rounded-full'/>
+        profilePic: <img src={blog.profilePicture} alt=""  className='w-10 h-10 rounded-full'/>
         
     }));
 

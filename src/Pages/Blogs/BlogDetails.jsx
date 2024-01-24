@@ -59,9 +59,9 @@ const BlogDetails = () => {
             <div className="card bg-base-100 shadow-xl border border-blue-500 ">
                 <figure><img src={image} alt="Blog" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">title : {title}</h2>
-                    <p>Short Description: {shortDescription}</p>
-                    <h3>Long Description : {longDescription}</h3>
+                    <h2 className="card-title"><span className="font-bold">Title: </span> {title}</h2>
+                    <p><span className="font-bold">Short Description: </span> {shortDescription}</p>
+                    <h3><span className="font-bold">Long Description: </span>{longDescription}</h3>
 
                     <h3 className="text-3xl font-bold">Comments</h3>
 

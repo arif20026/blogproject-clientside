@@ -41,17 +41,17 @@ const RecentBlog = ({ blog }) => {
       className="card bg-base-100 shadow-xl border border-red-500"
     >
       <figure>
-        <img src={image} alt="Blog" />
+        <img src={image} alt="Blog" className="w-60 h-40" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">title: {title}</h2>
-        <p>category: {category}</p>
-        <p>shortDescription: {shortDescription}</p>
+        <h2 className="card-title">Title: {title}</h2>
+        <p ><span className="font-bold">Category:</span> {category}</p>
+        <p > <span className="font-bold">Short Description: </span>{shortDescription}</p>
         <Link to={`/blogs/${_id}`}>
           <button className="btn btn-primary">Details</button>
         </Link>
         <button
-          className="btn btn-secondary w-20"
+          className="btn btn-primary w-20"
           onClick={() => handleAddToWishList(_id)}
         >
           Wishlist
