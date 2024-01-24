@@ -29,7 +29,7 @@ const AddBlog = () => {
 
         // sending newProduct to server
 
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://assignment-11-blog-server.vercel.app/blogs', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newBlog)

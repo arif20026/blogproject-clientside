@@ -20,13 +20,13 @@ const RecentBlog = ({ blog }) => {
 
     console.log(wishListedBlog);
 
-    fetch("http://localhost:5000/wishList", {
+    fetch("https://assignment-11-blog-server.vercel.app/wishList", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(wishListedBlog),
-    })
+    })  
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

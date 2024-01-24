@@ -12,7 +12,7 @@ const WishList = () => {
    
 
 
-    const url = `http://localhost:5000/wishList?email=${user?.email}`
+    const url = `https://assignment-11-blog-server.vercel.app/wishList?email=${user?.email}`
     console.log(url)
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const WishList = () => {
 
     const handleRemove = _id => {
         console.log(_id)
-        fetch(`http://localhost:5000/wishList/${_id}`, {
+        fetch(`https://assignment-11-blog-server.vercel.app/wishList/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

@@ -11,7 +11,7 @@ const BlogDetails = () => {
     const { user } = useContext(AuthContext)
 
     // const [comments, setComments] = useState([])
-    // const url = `http://localhost:5000/comments?blogId=${_id}`
+    // const url = `https://assignment-11-blog-server.vercel.app/comments?blogId=${_id}`
     // console.log(url)
 
     // useEffect(() => {
@@ -46,7 +46,7 @@ const BlogDetails = () => {
         
 
 
-    //     fetch('http://localhost:5000/comments', {
+    //     fetch('https://assignment-11-blog-server.vercel.app/comments', {
     //         method: 'POST',
     //         headers: { 'content-type': 'application/json' },
     //         body: JSON.stringify(newComment)

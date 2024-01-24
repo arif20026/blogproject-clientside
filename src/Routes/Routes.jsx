@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         {
           path:'/updateBlog/:id',
           element:<UpdateBlog></UpdateBlog>,
-          loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-blog-server.vercel.app/blogs/${params.id}`)
           
         },
         {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         {
           path:'/wishList/:id',
           element:<WishList></WishList>,
-          loader: ({params}) => fetch(`http://localhost:5000/wishList/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-blog-server.vercel.app/wishList/${params.id}`)
          
         },
         {
@@ -59,13 +59,13 @@ const router = createBrowserRouter([
         {
           path:'/blogs/:id',
           element:<PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
-          loader:({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+          loader:({params}) => fetch(`https://assignment-11-blog-server.vercel.app/blogs/${params.id}`)
         },
 
         {
           path:'/featuredBlog',
           element:<FeaturedBlog></FeaturedBlog>,
-          loader:() => fetch('http://localhost:5000/blogs')
+          loader:() => fetch('https://assignment-11-blog-server.vercel.app/blogs')
           
         },
        
