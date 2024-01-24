@@ -4,7 +4,6 @@ import BlogCard from "../Blogs/BlogCard";
 import { useQuery } from "@tanstack/react-query";
 
 const Blogs = () => {
-    // const allBlogs = useLoaderData();
 
     
     const {isPending,isError,error,data:allBlogs} =useQuery({
