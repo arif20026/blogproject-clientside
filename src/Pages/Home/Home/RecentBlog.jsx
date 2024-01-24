@@ -45,7 +45,7 @@ const RecentBlog = ({ blog }) => {
   return (
     <div
       
-      className="card bg-base-100 shadow-xl border border-red-500"
+      className="card bg-base-100 mx-10 shadow-xl border border-blue-500"
     >
       <figure>
         <img src={image} alt="Blog" className="w-60 h-40" />

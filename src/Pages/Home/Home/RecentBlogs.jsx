@@ -20,7 +20,8 @@ const RecentBlogs = () => {
     return (
         <div>
 
-            <h3>Blogs :{blogs.length}</h3>
+            <h3 className="text-center text-4xl font-bold my-8">Recent Blogs</h3>
+
          <div className=" space-y-4 my-4 ">
          {recentBlogs.map((blog) => (
            

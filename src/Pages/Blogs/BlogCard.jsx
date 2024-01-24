@@ -45,12 +45,12 @@ const BlogCard = ({ blog }) => {
         <div className="card bg-base-100 shadow-xl border border-blue-500 ">
             <figure><img src={image} alt="Blogs" className="w-60 h-40"/></figure>
             <div className="card-body">
-                <h2 className="card-title">title : {title}</h2>
-                <p>category: {category}</p>
-                <p>Short Description: {shortDescription}</p>
+                <h2 className="card-title"><span className="font-bold">Title : </span>{title}</h2>
+                <p> <span className="font-bold">Category:</span> {category}</p>
+                <p> <span className="font-bold">Short Description:</span> {shortDescription}</p>
                 <div className="card-actions justify-start">
                     <Link to={`/blogs/${_id}`}><button className="btn btn-primary">Details</button></Link>
-                    <button className="btn btn-secondary" onClick={() => handleAddToWishList(_id)}>Wishlist</button>
+                    <button className="btn btn-primary" onClick={() => handleAddToWishList(_id)}>Wishlist</button>
                    {
                     user?.email===email &&  <Link to={`/updateBlog/${_id}`} ><button className="btn btn-primary">Update</button></Link>
                    }
