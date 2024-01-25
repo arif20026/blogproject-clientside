@@ -48,7 +48,7 @@ const Blogs = () => {
         <div >
 
             {/* Category filter dropdown */}
-            <div className=" flex flex-col lg:flex-row space-y-4 my-4 justify-around items-center">
+            <div className=" flex flex-col lg:flex-row space-y-4 my-4 justify-around items-center gap">
                 <label>
                     <span className="font-bold mr-2">Filter by Category:</span>
                     <select

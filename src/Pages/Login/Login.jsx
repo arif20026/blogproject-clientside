@@ -72,14 +72,16 @@ const Login = () => {
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
 
                             </div>
-                            <div className="form-control mt-6  gap-4 w-full">
+                         
+                        </form>
+
+                        <div className="form-control mt-6  gap-4 w-full">
                                 <input className="btn btn-primary" type="submit" value="Login" />
                                 <div >
                                     <button className='btn btn-primary w-56' onClick={handleSignInWithGoogle}><span className='flex gap-2'>Sign in With Google<FaGoogle /></span></button>
 
                                 </div>
-                            </div>
-                        </form>
+                            </div>  
                         <p className='my-4 text-center'>No Account? Please <Link className='text-blue-600 font-bold' to="/register">Register</Link> </p>
 
                         {/* {
